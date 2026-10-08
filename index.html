@@ -1,4 +1,3 @@
-this is the finali index.html file
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,7 @@ this is the finali index.html file
 
 <body>
     <h2>AI DETECTION AND QUANTIFICATION</h2>
-    <p>This page shows AI-generated count of the red circles inside the image</p>
+    <p>This page shows AI-generated count of the red circles inside the image.</p>
 
     <div class="section">
         <img src="original.png" alt="original.png">
@@ -22,23 +21,49 @@ this is the finali index.html file
         <p><strong>AI Count:</strong> <span id="aiCount">13</span></p>
     </div>
 
-    <div class="section">
+    <!-- FORM SECTION -->
+    <form id="responseForm">
         <h3>Checklist</h3>
-        <label><input type="checkbox"> I reviewed the image </label>
-        <label><input type="checkbox"> The AI count seems reasonable.</label>
-        <label><input type="checkbox"> I am confident in my evaluation.</label>
-    </div>
+        <label><input type="checkbox" name="reviewed"> I reviewed the image</label>
+        <label><input type="checkbox" name="reasonable"> The AI count seems reasonable.</label>
+        <label><input type="checkbox" name="confident"> I am confident in my evaluation.</label>
 
-    <div class="section">
         <h3>Decision</h3>
         <label><input type="radio" name="decision" value="accept"> I accept the AI count</label>
         <label><input type="radio" name="decision" value="reject"> I reject the AI count</label>
 
         <label>What is the count? (if rejecting):
-            <input type="number" id="correctCount">
+            <input type="number" name="correctCount">
         </label>
-    </div>
 
-    <button onclick="alert('Response submitted!')">Submit</button>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- SCRIPT TO SEND DATA TO GOOGLE SHEETS -->
+    <script>
+        document.getElementById("responseForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const data = {
+                reviewed: document.querySelector("input[name='reviewed']").checked,
+                reasonable: document.querySelector("input[name='reasonable']").checked,
+                confident: document.querySelector("input[name='confident']").checked,
+                decision: document.querySelector("input[name='decision']:checked")?.value || "",
+                correctCount: document.querySelector("input[name='correctCount']").value,
+                aiCount: document.getElementById("aiCount").innerText,
+                timestamp: new Date().toISOString()
+            };
+
+            fetch("YOUR_GOOGLE_SCRIPT_URL", {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            alert("Response submitted!");
+        });
+    </script>
+
 </body>
 </html>
