@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example A — AI Count Only</title>
+    <style>
+        body { font-family: Arial; max-width: 700px; margin: auto; padding: 20px; }
+        img { width: 100%; max-width: 600px; border: 1px solid #ccc; margin-bottom: 20px; }
+        .section { margin-bottom: 25px; }
+        label { display: block; margin-top: 10px; }
+    </style>
+</head>
+
+<body>
+    <h2>Example A</h2>
+    <p>This page shows the image and the AI-generated count.</p>
+
+    <div class="section">
+        <img src="your-image-A.jpg" alt="Example A Image">
+        <p><strong>AI Count:</strong> <span id="aiCount">16</span></p>
+    </div>
+
+    <div class="section">
+        <h3>Checklist</h3>
+        <label><input type="checkbox"> I reviewed the image carefully.</label>
+        <label><input type="checkbox"> The AI count seems reasonable.</label>
+        <label><input type="checkbox"> I am confident in my evaluation.</label>
+    </div>
+
+    <div class="section">
+        <h3>Decision</h3>
+        <label><input type="radio" name="decision" value="accept"> I accept the AI count</label>
+        <label><input type="radio" name="decision" value="reject"> I reject the AI count</label>
+
+        <label>Correct Count (if rejecting):
+            <input type="number" id="correctCount">
+        </label>
+    </div>
+
+    <button onclick="alert('Response submitted!')">Submit</button>
+</body>
+</html>
