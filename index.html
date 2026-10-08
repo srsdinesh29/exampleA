@@ -13,17 +13,17 @@
 
 <body>
     <h2>AI DETECTION AND QUANTIFICATION</h2>
-    <p>This page shows the image and the AI-generated count.</p>
+    <p>This page shows AI-generated count of the red circles inside the image</p>
 
     <div class="section">
         <img src="original.png" alt="original.png">
         <img src="No_Explainable_AI.png" alt="No_Explainable_AI.png">
-        <p><strong>AI Count:</strong> <span id="aiCount">16</span></p>
+        <p><strong>AI Count:</strong> <span id="aiCount">13</span></p>
     </div>
 
     <div class="section">
         <h3>Checklist</h3>
-        <label><input type="checkbox"> I reviewed the image carefully.</label>
+        <label><input type="checkbox"> I reviewed the image </label>
         <label><input type="checkbox"> The AI count seems reasonable.</label>
         <label><input type="checkbox"> I am confident in my evaluation.</label>
     </div>
@@ -33,7 +33,7 @@
         <label><input type="radio" name="decision" value="accept"> I accept the AI count</label>
         <label><input type="radio" name="decision" value="reject"> I reject the AI count</label>
 
-        <label>Correct Count (if rejecting):
+        <label>What is the count? (if rejecting):
             <input type="number" id="correctCount">
         </label>
     </div>
