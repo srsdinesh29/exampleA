@@ -69,7 +69,7 @@
                 decision: document.querySelector("input[name='decision']:checked")?.value || "",
                 correctCount: document.querySelector("input[name='correctCount']").value,
                 aiCount: document.getElementById("aiCount").innerText,
-                timestamp: new Date().toISOString()
+                timestamp: new Date().toLocaleString("en-US", { timeZone: "America/Chicago" })
             };
 
             fetch("https://script.google.com/macros/s/AKfycbz8V68K07suksbWvlu9Bj_o_gYf2NVMqZDzXfbf8IPAQlP3nYDyEQAYiFZQ3ywje_kCQg/exec", {
