@@ -8,6 +8,12 @@
         img { width: 100%; max-width: 600px; border: 1px solid #ccc; margin-bottom: 20px; }
         .section { margin-bottom: 25px; }
         label { display: block; margin-top: 10px; }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 
@@ -23,6 +29,16 @@
 
     <!-- FORM SECTION -->
     <form id="responseForm">
+
+        <h3>Participant Information</h3>
+        <label>First Name:
+            <input type="text" name="firstName" required>
+        </label>
+
+        <label>Last Name:
+            <input type="text" name="lastName" required>
+        </label>
+
         <h3>Checklist</h3>
         <label><input type="checkbox" name="reviewed"> I reviewed the image</label>
         <label><input type="checkbox" name="reasonable"> The AI count seems reasonable.</label>
@@ -45,6 +61,8 @@
             e.preventDefault();
 
             const data = {
+                firstName: document.querySelector("input[name='firstName']").value,
+                lastName: document.querySelector("input[name='lastName']").value,
                 reviewed: document.querySelector("input[name='reviewed']").checked,
                 reasonable: document.querySelector("input[name='reasonable']").checked,
                 confident: document.querySelector("input[name='confident']").checked,
