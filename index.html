@@ -29,7 +29,7 @@ document.getElementById("responseForm").addEventListener("submit", function(e) {
         timestamp: new Date().toISOString()
     };
 
-    fetch("YOUR_GOOGLE_SCRIPT_URL", {
+    fetch("https://script.google.com/macros/s/AKfycbwcn7-ga2DA8a10tYAUwo971TgMqFrGMFSvA4HUyjntG11fl7-pSeISji9RtiHXWm8w/exec", {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
